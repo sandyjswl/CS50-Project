@@ -1,4 +1,4 @@
-from Scrabble import *
+from ps4a import *
 import time
 
 
@@ -16,7 +16,7 @@ def compChooseWord(hand, wordList, n):
     in the wordList.
 
     If no words in the wordList can be made from the hand, return None.
-	
+
     hand: dictionary (string -> int)
     wordList: list (string)
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
@@ -93,13 +93,10 @@ def compPlayHand(hand, wordList, n):
                 hand = updateHand(hand, word)
                 print()
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
-    print('\n\nTotal score: ' + str(totalScore) + ' points.')
+    print('Total score: ' + str(totalScore) + ' points.')
 
     
-#
-# Problem #6: Playing a game
-#
-#
+
 def playGame(wordList):
     """
     Allow the user to play an arbitrary number of hands.
@@ -139,7 +136,7 @@ def playGame(wordList):
     				print("Invalid command.")	
     		if next_input=='u':
     			hand=dealHand(HAND_SIZE)
-    			playHand({'w':1, 's':1, 't':2, 'a':1, 'o':1, 'f':1}, wordList, 7)
+    			playHand(hand,wordList,HAND_SIZE)
     		elif next_input=='c':
     			hand=dealHand(HAND_SIZE)
     			compPlayHand(hand,wordList,HAND_SIZE)	
@@ -158,7 +155,7 @@ def playGame(wordList):
     			if next_input=='u':
     				playHand(hand,wordList,HAND_SIZE)
     			elif next_input=='c':
-    				compPlayHand({'w':1, 's':1, 't':2, 'a':1, 'o':1, 'f':1}, wordList, 7)
+    				compPlayHand(hand,wordList,HAND_SIZE)
     				
     			
     	elif user_input=='e':

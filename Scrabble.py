@@ -1,4 +1,4 @@
-# The 6.00 Word Game
+
 
 import random
 import string
@@ -11,9 +11,6 @@ SCRABBLE_LETTER_VALUES = {
     'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k': 5, 'l': 1, 'm': 3, 'n': 1, 'o': 1, 'p': 3, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u': 1, 'v': 4, 'w': 4, 'x': 8, 'y': 4, 'z': 10
 }
 
-# -----------------------------------
-# Helper code
-# (you don't need to understand this helper code)
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -50,12 +47,6 @@ def getFrequencyDict(sequence):
     return freq
 	
 
-# (end of helper code)
-# -----------------------------------
-
-#
-# Problem #1: Scoring a word
-#
 def getWordScore(word, n):
     """
     Returns the score for a word. Assumes the word is a valid word.
@@ -80,11 +71,6 @@ def getWordScore(word, n):
     return score	
 
 
-
-
-#
-# Problem #2: Make sure you understand how this function works and what it does!
-#
 def displayHand(hand):
     """
     Displays the letters currently in the hand.
@@ -102,9 +88,7 @@ def displayHand(hand):
              print(letter,end=" ")       # print all on the same line
     print()                             # print an empty line
 
-#
-# Problem #2: Make sure you understand how this function works and what it does!
-#
+
 def dealHand(n):
     """
     Returns a random hand containing n lowercase letters.
@@ -130,9 +114,7 @@ def dealHand(n):
         
     return hand
 
-#
-# Problem #2: Update a hand by removing letters
-#
+
 def updateHand(hand, word):
     """
     Assumes that 'hand' has all the letters in word.
@@ -160,10 +142,6 @@ def updateHand(hand, word):
 
 
 
-
-#
-# Problem #3: Test word validity
-#
 def isValidWord(word, hand, wordList):
     """
     Returns True if word is in the wordList and is entirely
@@ -198,9 +176,7 @@ def isValidWord(word, hand, wordList):
     	return False					
 
 
-#
-# Problem #4: Playing a hand
-#
+
 
 def calculateHandlen(hand):
     """ 
@@ -278,9 +254,6 @@ def playHand(hand, wordList, n):
     
 
 
-#
-# Problem #5: Playing a game
-# 
 
 def playGame(wordList):
     """
@@ -301,7 +274,7 @@ def playGame(wordList):
     	if user_input=='n':
     		initialize=2
     		hand=dealHand(HAND_SIZE)
-    		playHand({'h':1, 'i':1, 'c':1, 'z':1, 'm':2, 'a':1}, wordList, 7)
+    		playHand(hand,wordList,HAND_SIZE)
     	elif user_input=='r':
     		if initialize==1:
     			print("You have not played a hand yet. Please play a new hand first!")
