@@ -1,5 +1,3 @@
-
-
 import random
 import string
 
@@ -36,9 +34,6 @@ def getFrequencyDict(sequence):
     Returns a dictionary where the keys are elements of the sequence
     and the values are integer counts, for the number of times that
     an element is repeated in the sequence.
-
-    sequence: string or list
-    return: dictionary
     """
     # freqs: dictionary (element_type -> int)
     freq = {}
@@ -56,11 +51,7 @@ def getWordScore(word, n):
     letters are used on the first turn.
 
     Letters are scored as in Scrabble; A is worth 1, B is worth 3, C is
-    worth 3, D is worth 2, E is worth 1, and so on (see SCRABBLE_LETTER_VALUES)
-
-    word: string (lowercase letters)
-    n: integer (HAND_SIZE; i.e., hand size required for additional points)
-    returns: int >= 0
+    worth 3, D is worth 2, E is worth 1, and so on (see SCRABBLE_LETTER_VALUES
     """
     score=0
     for letter in word:
@@ -74,14 +65,6 @@ def getWordScore(word, n):
 def displayHand(hand):
     """
     Displays the letters currently in the hand.
-
-    For example:
-    >>> displayHand({'a':1, 'x':2, 'l':3, 'e':1})
-    Should print out something like:
-       a x x l l l e
-    The order of the letters is unimportant.
-
-    hand: dictionary (string -> int)
     """
     for letter in hand.keys():
         for j in range(hand[letter]):
@@ -97,9 +80,6 @@ def dealHand(n):
     Hands are represented as dictionaries. The keys are
     letters and the values are the number of times the
     particular letter is repeated in that hand.
-
-    n: int >= 0
-    returns: dictionary (string -> int)
     """
     hand={}
     numVowels = n // 3
@@ -120,16 +100,7 @@ def updateHand(hand, word):
     Assumes that 'hand' has all the letters in word.
     In other words, this assumes that however many times
     a letter appears in 'word', 'hand' has at least as
-    many of that letter in it. 
-
-    Updates the hand: uses up the letters in the given word
-    and returns the new hand, without those letters in it.
-
-    Has no side effects: does not modify hand.
-
-    word: string
-    hand: dictionary (string -> int)    
-    returns: dictionary (string -> int)
+    many of that letter in it.
     """
     newHand=hand.copy()
     for letter in word:
@@ -145,13 +116,7 @@ def updateHand(hand, word):
 def isValidWord(word, hand, wordList):
     """
     Returns True if word is in the wordList and is entirely
-    composed of letters in the hand. Otherwise, returns False.
-
-    Does not mutate hand or wordList.
-   
-    word: string
-    hand: dictionary (string -> int)
-    wordList: list of lowercase strings
+    composed of letters in the hand. Otherwise, returns False
     """
     newHand=hand.copy()
     count=0
@@ -181,9 +146,6 @@ def isValidWord(word, hand, wordList):
 def calculateHandlen(hand):
     """ 
     Returns the length (number of letters) in the current hand.
-    
-    hand: dictionary (string-> int)
-    returns: integer
     """
     length=0
     for i in hand:
@@ -208,11 +170,6 @@ def playHand(hand, wordList, n):
     * The sum of the word scores is displayed when the hand finishes.
     * The hand finishes when there are no more unused letters or the user
       inputs a "."
-
-      hand: dictionary (string -> int)
-      wordList: list of lowercase strings
-      n: integer (HAND_SIZE; i.e., hand size required for additional points)
-      
     """
     total_score=0
     # Keep track of the total score
@@ -257,15 +214,7 @@ def playHand(hand, wordList, n):
 
 def playGame(wordList):
     """
-    Allow the user to play an arbitrary number of hands.
-
-    1) Asks the user to input 'n' or 'r' or 'e'.
-      * If the user inputs 'n', let the user play a new (random) hand.
-      * If the user inputs 'r', let the user play the last hand again.
-      * If the user inputs 'e', exit the game.
-      * If the user inputs anything else, tell them their input was invalid.
- 
-    2) When done playing the hand, repeat from step 1    
+    Allow the user to play an arbitrary number of hands
     """
     initialize=1
     while True:

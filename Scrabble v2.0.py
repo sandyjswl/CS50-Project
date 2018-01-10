@@ -1,12 +1,8 @@
-from ps4a import *
+from Scrabble import *
 import time
 
-
-#
-#
 # Computer chooses a word
-#
-#
+
 def compChooseWord(hand, wordList, n):
     """
     Given a hand and a wordList, find the word that gives 
@@ -16,12 +12,6 @@ def compChooseWord(hand, wordList, n):
     in the wordList.
 
     If no words in the wordList can be made from the hand, return None.
-
-    hand: dictionary (string -> int)
-    wordList: list (string)
-    n: integer (HAND_SIZE; i.e., hand size required for additional points)
-
-    returns: string or None
     """
     # Create a new variable to store the maximum score seen so far (initially 0)
     bestScore = 0
@@ -57,11 +47,6 @@ def compPlayHand(hand, wordList, n):
     computer chooses another word.
     4)  The sum of the word scores is displayed when the hand finishes.
     5)  The hand finishes when the computer has exhausted its possible
-    choices (i.e. compChooseWord returns None).
- 
-    hand: dictionary (string -> int)
-    wordList: list (string)
-    n: integer (HAND_SIZE; i.e., hand size required for additional points)
     """
     # Keep track of the total score
     totalScore = 0
